@@ -81,12 +81,7 @@ const ToolsMenu: React.FC = () => {
       {/* Header */}
       <header className="bg-white border-b-2 border-gray-200 px-6 py-4 sticky top-0 z-10">
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <button onClick={() => navigate(-1)} className="text-2xl mr-4">
-              ←
-            </button>
-            <h1 className="text-2xl font-bold text-gray-900">AI Tools</h1>
-          </div>
+          <h1 className="text-2xl font-bold text-gray-900">Create</h1>
           <div className="flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-lg">
             <span className="text-xl">💎</span>
             <span className="font-bold text-gray-900">{balance}</span>

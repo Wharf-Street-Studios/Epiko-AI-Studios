@@ -84,8 +84,13 @@ const DiscoveryFeed: React.FC = () => {
       {/* Header */}
       <header className="bg-white border-b-2 border-gray-200 px-6 py-4 sticky top-0 z-10">
         <div className="flex items-center justify-between mb-4">
-          <h1 className="text-2xl font-bold text-gray-900">Discover</h1>
-          <button className="text-2xl">🔍</button>
+          <h1 className="text-2xl font-bold text-gray-900">Feed</h1>
+          <button
+            onClick={() => navigate('/search')}
+            className="text-2xl hover:scale-110 transition-transform"
+          >
+            🔍
+          </button>
         </div>
 
         {/* Filter Chips */}

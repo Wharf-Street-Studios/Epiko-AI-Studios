@@ -58,7 +58,7 @@ const UserProfile: React.FC = () => {
       {/* Header */}
       <header className="bg-white border-b-2 border-gray-200 px-6 py-4 sticky top-0 z-10">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-bold text-gray-900">Profile</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Profile</h1>
           <button
             onClick={() => setShowSettings(!showSettings)}
             className="p-2 hover:bg-gray-100 rounded-lg transition-all"
