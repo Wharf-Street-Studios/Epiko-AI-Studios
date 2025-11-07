@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import { useTokens } from '../../context/TokenContext';
-import { Card, BottomNavigation } from '../../components/ui';
+import { Card, Button, BottomNavigation } from '../../components/ui';
 
 const allTools = [
   {
@@ -71,10 +72,45 @@ const allTools = [
 
 const ToolsMenu: React.FC = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const { balance } = useTokens();
 
   const popularTools = allTools.filter(tool => tool.popular);
   const otherTools = allTools.filter(tool => !tool.popular);
+
+  // Require authentication to use tools
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6 pb-20">
+        <div className="text-center mb-8 max-w-md">
+          <span className="text-8xl block mb-6">✨</span>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Sign In to Create</h2>
+          <p className="text-gray-600 mb-8">
+            Create an account or sign in to access our AI-powered tools and start creating amazing content
+          </p>
+          <div className="space-y-3">
+            <Button
+              variant="primary"
+              size="large"
+              fullWidth
+              onClick={() => navigate('/create-account')}
+            >
+              Create Account
+            </Button>
+            <Button
+              variant="outline"
+              size="large"
+              fullWidth
+              onClick={() => navigate('/sign-in')}
+            >
+              Sign In
+            </Button>
+          </div>
+        </div>
+        <BottomNavigation />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">

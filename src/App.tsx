@@ -51,7 +51,7 @@ function App() {
             <Route path="/sign-in" element={<SignInScreen />} />
 
             {/* Home & Navigation */}
-            <Route path="/home" element={<HomeScreen />} />
+            <Route path="/home" element={<Navigate to="/discover" replace />} />
             <Route path="/tools" element={<ToolsMenu />} />
 
             {/* AI Tools */}
