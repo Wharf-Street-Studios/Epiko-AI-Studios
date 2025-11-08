@@ -57,7 +57,7 @@ const ForgotPassword: React.FC = () => {
           <p className="text-gray-600 text-center text-lg mb-4 max-w-sm">
             We've sent a password reset link to:
           </p>
-          <p className="text-primary-600 font-semibold text-center mb-8">
+          <p className="text-blue-600 font-semibold text-center mb-8">
             {email}
           </p>
           <p className="text-sm text-gray-500 text-center mb-8 max-w-sm">

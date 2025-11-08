@@ -125,28 +125,28 @@ const UserProfile: React.FC = () => {
             onClick={() => setActiveTab('grid')}
             className={`flex-1 py-4 text-center font-semibold transition-all duration-300 relative ${
               activeTab === 'grid'
-                ? 'text-primary-600'
+                ? 'text-blue-600'
                 : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
             }`}
           >
             <span className="mr-2 text-lg">🖼️</span>
             My Creations
             {activeTab === 'grid' && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-600 to-accent-600"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-600"></div>
             )}
           </button>
           <button
             onClick={() => setActiveTab('liked')}
             className={`flex-1 py-4 text-center font-semibold transition-all duration-300 relative ${
               activeTab === 'liked'
-                ? 'text-primary-600'
+                ? 'text-blue-600'
                 : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
             }`}
           >
             <span className="mr-2 text-lg">❤️</span>
             Liked
             {activeTab === 'liked' && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-600 to-accent-600"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-600"></div>
             )}
           </button>
         </div>

@@ -101,8 +101,8 @@ const DiscoveryFeed: React.FC = () => {
               onClick={() => setSelectedFilter(filter)}
               className={`px-5 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 transform hover:scale-105 active:scale-95 ${
                 selectedFilter === filter
-                  ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white shadow-medium'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 shadow-soft hover:shadow-medium border border-gray-200'
+                  ? 'bg-blue-600 text-white shadow-lg border-2 border-blue-700'
+                  : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md hover:shadow-lg border-2 border-gray-300'
               }`}
             >
               {filter}

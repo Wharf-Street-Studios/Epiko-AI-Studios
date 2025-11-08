@@ -97,7 +97,7 @@ const SignInScreen: React.FC = () => {
           <div className="flex justify-end">
             <button
               onClick={() => navigate('/forgot-password')}
-              className="text-sm text-primary-600 hover:text-primary-700 font-semibold transition-colors duration-300 underline"
+              className="text-sm text-blue-600 hover:text-blue-700 font-semibold transition-colors duration-300 underline"
             >
               Forgot Password?
             </button>
@@ -120,7 +120,7 @@ const SignInScreen: React.FC = () => {
           <span className="text-gray-600">Don't have an account? </span>
           <button
             onClick={() => navigate('/create-account')}
-            className="text-primary-600 font-bold hover:text-primary-700 transition-colors duration-300"
+            className="text-blue-600 font-bold hover:text-blue-700 transition-colors duration-300"
           >
             Create Account
           </button>

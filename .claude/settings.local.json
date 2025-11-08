@@ -27,7 +27,8 @@
       "Bash(curl:*)",
       "Bash(npm run publish:*)",
       "Bash(echo:*)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(open -a \"Firefox\" \"http://localhost:3001/lorven-ai/\")"
     ],
     "deny": [],
     "ask": []
