@@ -110,11 +110,11 @@ const ToolsMenu: React.FC = () => {
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-start space-x-5 flex-1">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl flex items-center justify-center text-3xl shadow-medium group-hover:shadow-strong transition-all duration-300 transform group-hover:scale-110 border-2 border-primary-200 group-hover:border-primary-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl flex items-center justify-center text-3xl shadow-medium group-hover:shadow-strong transition-all duration-300 transform group-hover:scale-110 border-2 border-blue-200 group-hover:border-blue-300">
                       {tool.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900 mb-1.5 group-hover:text-primary-600 transition-colors">
+                      <h3 className="text-lg font-bold text-gray-900 mb-1.5 group-hover:text-blue-600 transition-colors">
                         {tool.name}
                       </h3>
                       <p className="text-sm text-gray-600 mb-3 leading-relaxed">
@@ -129,7 +129,7 @@ const ToolsMenu: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="text-gray-400 group-hover:text-primary-500 text-3xl transition-all duration-300 transform group-hover:translate-x-1">›</button>
+                  <button className="text-gray-400 group-hover:text-blue-500 text-3xl transition-all duration-300 transform group-hover:translate-x-1">›</button>
                 </div>
               </Card>
             ))}
@@ -153,11 +153,11 @@ const ToolsMenu: React.FC = () => {
                 className="aspect-square flex flex-col items-center justify-center space-y-3.5 p-5 group"
                 style={{ animationDelay: `${0.3 + index * 0.05}s` }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl flex items-center justify-center shadow-medium group-hover:shadow-strong transition-all duration-300 transform group-hover:scale-110 border-2 border-primary-200 group-hover:border-primary-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl flex items-center justify-center shadow-medium group-hover:shadow-strong transition-all duration-300 transform group-hover:scale-110 border-2 border-blue-200 group-hover:border-blue-300">
                   <span className="text-4xl">{tool.icon}</span>
                 </div>
                 <div className="text-center">
-                  <h3 className="font-bold text-gray-900 text-sm mb-2 group-hover:text-primary-600 transition-colors">
+                  <h3 className="font-bold text-gray-900 text-sm mb-2 group-hover:text-blue-600 transition-colors">
                     {tool.name}
                   </h3>
                   <div className="flex items-center justify-center space-x-1.5 bg-gradient-to-br from-amber-50 to-amber-100 px-3 py-1.5 rounded-full border border-amber-200 shadow-soft">
@@ -171,7 +171,7 @@ const ToolsMenu: React.FC = () => {
         </section>
 
         {/* Get More Tokens CTA */}
-        <Card className="p-6 bg-gradient-to-br from-primary-50 via-accent-50 to-amber-50 border-2 border-primary-200 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        <Card className="p-6 bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 border-2 border-blue-200 animate-slide-up" style={{ animationDelay: '0.4s' }}>
           <div className="flex items-center justify-between">
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-lg">Need more tokens?</h3>
@@ -179,7 +179,7 @@ const ToolsMenu: React.FC = () => {
             </div>
             <button
               onClick={() => navigate('/wallet')}
-              className="px-6 py-3.5 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold hover:from-primary-700 hover:to-primary-600 transition-all duration-300 shadow-medium hover:shadow-strong transform hover:scale-105 active:scale-95 whitespace-nowrap"
+              className="px-6 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-medium hover:shadow-strong transform hover:scale-105 active:scale-95 whitespace-nowrap"
             >
               Get Tokens
             </button>

@@ -130,11 +130,11 @@ const DiscoveryFeed: React.FC = () => {
                 onClick={() => navigate(`/profile/${post.creator.username}`)}
                 className="flex items-center space-x-3 group"
               >
-                <div className="w-11 h-11 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full flex items-center justify-center text-xl shadow-soft group-hover:shadow-medium transition-all duration-300 transform group-hover:scale-105">
+                <div className="w-11 h-11 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-xl shadow-soft group-hover:shadow-medium transition-all duration-300 transform group-hover:scale-105">
                   {post.creator.avatar}
                 </div>
                 <div className="text-left">
-                  <p className="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">{post.creator.username}</p>
+                  <p className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{post.creator.username}</p>
                   <p className="text-xs text-gray-500">{post.timestamp}</p>
                 </div>
               </button>
@@ -145,8 +145,8 @@ const DiscoveryFeed: React.FC = () => {
 
             {/* Content Image */}
             <div
-              className="w-full aspect-square bg-gradient-to-br from-gray-50 via-primary-50 to-accent-50 flex items-center justify-center cursor-pointer relative overflow-hidden group"
-              onClick={() => alert('View full image')}
+              className="w-full aspect-square bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 flex items-center justify-center cursor-pointer relative overflow-hidden group"
+              onClick={() => navigate(`/reel/${post.id}`)}
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="text-center relative z-10 transform group-hover:scale-105 transition-transform duration-300">
@@ -170,15 +170,24 @@ const DiscoveryFeed: React.FC = () => {
                     />
                     <span className="text-sm font-semibold text-gray-900">{post.likes}</span>
                   </button>
-                  <button className="flex items-center space-x-2 group">
+                  <button
+                    onClick={() => navigate(`/reel/${post.id}`)}
+                    className="flex items-center space-x-2 group"
+                  >
                     <Message01Icon size={24} color="#9ca3af" className="group-hover:scale-110 transition-all duration-300" />
                     <span className="text-sm font-semibold text-gray-900">{post.comments}</span>
                   </button>
-                  <button className="hover:scale-110 transition-all duration-300">
+                  <button
+                    onClick={() => navigate(`/share/${post.id}`)}
+                    className="hover:scale-110 transition-all duration-300"
+                  >
                     <Share08Icon size={24} color="#9ca3af" />
                   </button>
                 </div>
-                <button className="hover:scale-110 transition-all duration-300">
+                <button
+                  onClick={() => alert('Saved to bookmarks')}
+                  className="hover:scale-110 transition-all duration-300"
+                >
                   <BookmarkAdd01Icon size={24} color="#9ca3af" />
                 </button>
               </div>

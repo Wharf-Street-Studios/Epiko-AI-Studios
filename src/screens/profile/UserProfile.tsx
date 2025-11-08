@@ -63,7 +63,7 @@ const UserProfile: React.FC = () => {
         <div className="flex items-start justify-between mb-5">
           {/* Avatar and Info */}
           <div className="flex items-start space-x-4">
-            <div className="w-24 h-24 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full flex items-center justify-center text-5xl shadow-medium border-4 border-white">
+            <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-5xl shadow-medium border-4 border-white">
               {user.avatar || '👤'}
             </div>
             <div>
@@ -71,15 +71,15 @@ const UserProfile: React.FC = () => {
               <p className="text-sm text-gray-600 mb-3 font-medium">{user.fullName}</p>
               <div className="flex items-center space-x-5 text-sm">
                 <button className="text-center group">
-                  <p className="font-bold text-gray-900 text-lg group-hover:text-primary-600 transition-colors">{mockUserCreations.length}</p>
+                  <p className="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition-colors">{mockUserCreations.length}</p>
                   <p className="text-gray-500 text-xs">Posts</p>
                 </button>
                 <button className="text-center group">
-                  <p className="font-bold text-gray-900 text-lg group-hover:text-primary-600 transition-colors">1.2K</p>
+                  <p className="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition-colors">1.2K</p>
                   <p className="text-gray-500 text-xs">Followers</p>
                 </button>
                 <button className="text-center group">
-                  <p className="font-bold text-gray-900 text-lg group-hover:text-primary-600 transition-colors">345</p>
+                  <p className="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition-colors">345</p>
                   <p className="text-gray-500 text-xs">Following</p>
                 </button>
               </div>
@@ -95,20 +95,25 @@ const UserProfile: React.FC = () => {
         </div>
 
         {/* Edit Profile Button */}
-        <Button variant="outline" size="medium" fullWidth>
+        <Button
+          variant="outline"
+          size="medium"
+          fullWidth
+          onClick={() => navigate('/settings')}
+        >
           Edit Profile
         </Button>
       </div>
 
       {/* Account Stats */}
-      <div className="mx-6 mb-6 p-5 bg-gradient-to-br from-primary-50 via-accent-50 to-amber-50 rounded-2xl shadow-medium border-2 border-primary-200 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+      <div className="mx-6 mb-6 p-5 bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 rounded-2xl shadow-medium border-2 border-blue-200 animate-slide-up" style={{ animationDelay: '0.1s' }}>
         <div className="grid grid-cols-3 gap-4 text-center">
           <div className="group cursor-pointer">
-            <p className="text-2xl font-bold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">5</p>
+            <p className="text-2xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">5</p>
             <p className="text-xs text-gray-600 font-medium">Generations Today</p>
           </div>
           <div className="group cursor-pointer">
-            <p className="text-2xl font-bold text-gray-900 mb-1 group-hover:text-accent-600 transition-colors">257</p>
+            <p className="text-2xl font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors">257</p>
             <p className="text-xs text-gray-600 font-medium">Total Likes</p>
           </div>
           <div className="group cursor-pointer">
@@ -161,8 +166,8 @@ const UserProfile: React.FC = () => {
                 {mockUserCreations.map((creation, index) => (
                   <button
                     key={creation.id}
-                    onClick={() => alert('View/Edit creation')}
-                    className="aspect-square bg-gradient-to-br from-primary-50 via-accent-50 to-amber-50 rounded-2xl flex flex-col items-center justify-center relative hover:scale-105 transition-all duration-300 shadow-soft hover:shadow-medium border border-gray-100 group animate-scale-in"
+                    onClick={() => navigate(`/reel/${creation.id}`)}
+                    className="aspect-square bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 rounded-2xl flex flex-col items-center justify-center relative hover:scale-105 transition-all duration-300 shadow-soft hover:shadow-medium border border-gray-100 group animate-scale-in"
                     style={{ animationDelay: `${0.3 + index * 0.05}s` }}
                   >
                     <span className="text-6xl group-hover:scale-110 transition-transform duration-300">{creation.emoji}</span>
@@ -197,8 +202,8 @@ const UserProfile: React.FC = () => {
                 {mockLikedContent.map((content, index) => (
                   <button
                     key={content.id}
-                    onClick={() => alert('View content')}
-                    className="aspect-square bg-gradient-to-br from-primary-50 via-accent-50 to-amber-50 rounded-2xl flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 shadow-soft hover:shadow-medium border border-gray-100 group animate-scale-in"
+                    onClick={() => navigate(`/reel/${content.id}`)}
+                    className="aspect-square bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 rounded-2xl flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 shadow-soft hover:shadow-medium border border-gray-100 group animate-scale-in"
                     style={{ animationDelay: `${0.3 + index * 0.05}s` }}
                   >
                     <span className="text-6xl group-hover:scale-110 transition-transform duration-300">{content.emoji}</span>
