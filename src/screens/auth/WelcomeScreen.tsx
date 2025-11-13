@@ -14,7 +14,7 @@ const WelcomeScreen: React.FC = () => {
           <SparklesIcon size={56} color="#ffffff" />
         </div>
         <h1 className="text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-          Lorven Studios AI
+          Epiko AI Studios
         </h1>
         <p className="text-lg text-gray-600 max-w-sm mx-auto leading-relaxed">
           Create amazing AI-powered content with professional-quality results

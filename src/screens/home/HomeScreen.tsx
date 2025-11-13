@@ -41,7 +41,7 @@ const HomeScreen: React.FC = () => {
       <header className="bg-white border-b-2 border-gray-200 px-6 py-4 sticky top-0 z-10">
         <div className="flex items-center justify-between mb-3">
           <h1 className="text-2xl font-bold text-gray-900">
-            Lorven Studios AI
+            Epiko AI Studios
           </h1>
           <div className="flex items-center space-x-3">
             <button

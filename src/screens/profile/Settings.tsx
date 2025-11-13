@@ -120,7 +120,7 @@ const Settings: React.FC = () => {
 
         {/* App Info */}
         <div className="text-center pt-6 space-y-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          <p className="text-sm text-gray-600 font-semibold">Lorven Studios AI</p>
+          <p className="text-sm text-gray-600 font-semibold">Epiko AI Studios</p>
           <p className="text-xs text-gray-500">Version 1.0.0</p>
         </div>
       </main>
