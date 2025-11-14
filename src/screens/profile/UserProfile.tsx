@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useFollow } from '../../context/FollowContext';
 import { BottomNavigation, Avatar } from '../../components/ui';
-import { Settings02Icon, GridIcon, FavouriteIcon, UserIcon } from 'hugeicons-react';
+import { Settings02Icon, GridIcon, FavouriteIcon, BookmarkAdd01Icon } from 'hugeicons-react';
 
 const mockUserCreations = [
   { id: 1, image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop', likes: 45, tool: 'Face Swap' },
@@ -24,7 +24,7 @@ const UserProfile: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { getFollowerCount, getFollowingCount } = useFollow();
-  const [activeTab, setActiveTab] = useState<'posts' | 'liked'>('posts');
+  const [activeTab, setActiveTab] = useState<'posts' | 'liked' | 'saved'>('posts');
 
   const followerCount = user ? getFollowerCount(user.id) : 0;
   const followingCount = user ? getFollowingCount(user.id) : 0;
@@ -151,6 +151,21 @@ const UserProfile: React.FC = () => {
               className={activeTab === 'liked' ? 'fill-current' : ''}
             />
             {activeTab === 'liked' && (
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white" />
+            )}
+          </button>
+          <button
+            onClick={() => navigate('/profile/saved')}
+            className={`flex-1 py-4 flex items-center justify-center gap-2 transition-colors relative ${
+              activeTab === 'saved' ? 'text-white' : 'text-dark-500'
+            }`}
+          >
+            <BookmarkAdd01Icon
+              size={22}
+              color={activeTab === 'saved' ? '#ffffff' : '#737373'}
+              className={activeTab === 'saved' ? 'fill-current' : ''}
+            />
+            {activeTab === 'saved' && (
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white" />
             )}
           </button>

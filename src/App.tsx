@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { TokenProvider } from './context/TokenContext';
 import { FollowProvider } from './context/FollowContext';
+import { PostInteractionProvider } from './context/PostInteractionContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ErrorBoundary from './components/ErrorBoundary';
 
@@ -41,6 +42,7 @@ import Wallet from './screens/profile/Wallet';
 import Notifications from './screens/profile/Notifications';
 import FollowersList from './screens/profile/FollowersList';
 import FollowingList from './screens/profile/FollowingList';
+import SavedPosts from './screens/profile/SavedPosts';
 // Removed: ChoosePlan, Rewards (per PRD v2.0 - simplified to credits only)
 
 function App() {
@@ -49,8 +51,9 @@ function App() {
       <AuthProvider>
         <TokenProvider>
           <FollowProvider>
-            <div className="min-h-screen bg-white">
-              <Routes>
+            <PostInteractionProvider>
+              <div className="min-h-screen bg-white">
+                <Routes>
             {/* Public Auth Routes */}
             <Route path="/welcome" element={<WelcomeScreen />} />
             <Route path="/social-sign-in" element={<SocialSignIn />} />
@@ -84,6 +87,7 @@ function App() {
             <Route path="/profile/edit" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
             <Route path="/profile/followers" element={<ProtectedRoute><FollowersList /></ProtectedRoute>} />
             <Route path="/profile/following" element={<ProtectedRoute><FollowingList /></ProtectedRoute>} />
+            <Route path="/profile/saved" element={<ProtectedRoute><SavedPosts /></ProtectedRoute>} />
             <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/wallet" element={<ProtectedRoute><Wallet /></ProtectedRoute>} />
@@ -94,7 +98,8 @@ function App() {
             {/* Catch all - redirect to welcome if not authenticated */}
             <Route path="*" element={<Navigate to="/welcome" replace />} />
             </Routes>
-            </div>
+              </div>
+            </PostInteractionProvider>
           </FollowProvider>
         </TokenProvider>
       </AuthProvider>

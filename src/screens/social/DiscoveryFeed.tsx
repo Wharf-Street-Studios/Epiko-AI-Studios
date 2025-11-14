@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { usePostInteraction } from '../../context/PostInteractionContext';
 import { BottomNavigation, Avatar } from '../../components/ui';
 import {
   Search01Icon,
@@ -12,7 +13,7 @@ import {
 } from 'hugeicons-react';
 
 interface Post {
-  id: number;
+  id: string;
   creator: {
     username: string;
     avatar: string;
@@ -22,84 +23,81 @@ interface Post {
   timestamp: string;
   likes: number;
   comments: number;
-  isLiked: boolean;
-  isBookmarked: boolean;
 }
 
 const mockPosts: Post[] = [
   {
-    id: 1,
+    id: 'post_1',
     creator: { username: 'sarah_creates', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces' },
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=600&fit=crop',
     tool: 'Face Swap',
     timestamp: '2h',
     likes: 234,
     comments: 12,
-    isLiked: false,
-    isBookmarked: false,
   },
   {
-    id: 2,
+    id: 'post_2',
     creator: { username: 'john_ai', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces' },
     image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&h=600&fit=crop',
     tool: 'AI Avatar',
     timestamp: '5h',
     likes: 567,
     comments: 34,
-    isLiked: true,
-    isBookmarked: false,
   },
   {
-    id: 3,
-    creator: { username: 'creative_mind', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces' },
+    id: 'post_3',
+    creator: { username: 'creative_mike', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces' },
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=600&fit=crop',
-    tool: 'Enhancement',
+    tool: 'HD Enhance',
     timestamp: '1d',
     likes: 890,
     comments: 45,
-    isLiked: false,
-    isBookmarked: true,
   },
   {
-    id: 4,
+    id: 'post_4',
     creator: { username: 'art_lover', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces' },
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop',
-    tool: 'Gender Swap',
+    tool: 'Age Transform',
     timestamp: '2d',
     likes: 1234,
     comments: 89,
-    isLiked: false,
-    isBookmarked: false,
   },
 ];
 
 const DiscoveryFeed: React.FC = () => {
   const navigate = useNavigate();
-  const [posts, setPosts] = useState<Post[]>(mockPosts);
+  const { isLiked, likePost, unlikePost, getLikeCount, isSaved, savePost, unsavePost, getCommentCount } = usePostInteraction();
 
-  const handleLike = (postId: number) => {
-    setPosts(posts.map(post => {
-      if (post.id === postId) {
-        return {
-          ...post,
-          isLiked: !post.isLiked,
-          likes: post.isLiked ? post.likes - 1 : post.likes + 1,
-        };
-      }
-      return post;
-    }));
+  const handleLike = (postId: string) => {
+    if (isLiked(postId)) {
+      unlikePost(postId);
+    } else {
+      likePost(postId);
+    }
   };
 
-  const handleBookmark = (postId: number) => {
-    setPosts(posts.map(post => {
-      if (post.id === postId) {
-        return {
-          ...post,
-          isBookmarked: !post.isBookmarked,
-        };
-      }
-      return post;
-    }));
+  const handleBookmark = (postId: string) => {
+    if (isSaved(postId)) {
+      unsavePost(postId);
+    } else {
+      savePost(postId);
+    }
+  };
+
+  const handleShare = (post: Post) => {
+    if (navigator.share) {
+      navigator.share({
+        title: `Check out this ${post.tool} creation by @${post.creator.username}`,
+        text: `Amazing AI creation using ${post.tool}`,
+        url: window.location.origin + `/reel/${post.id}`,
+      }).catch(() => {
+        // User cancelled or error occurred
+      });
+    } else {
+      // Fallback: copy link to clipboard
+      navigator.clipboard.writeText(window.location.origin + `/reel/${post.id}`);
+      alert('Link copied to clipboard!');
+    }
   };
 
   return (
@@ -119,7 +117,13 @@ const DiscoveryFeed: React.FC = () => {
 
       {/* Feed Content */}
       <main className="max-w-2xl mx-auto">
-        {posts.map((post) => (
+        {mockPosts.map((post) => {
+          const postLiked = isLiked(post.id);
+          const postSaved = isSaved(post.id);
+          const likeCount = getLikeCount(post.id, post.likes);
+          const commentCount = getCommentCount(post.id, post.comments);
+
+          return (
           <article
             key={post.id}
             className="border-b border-dark-100 bg-black"
@@ -170,8 +174,8 @@ const DiscoveryFeed: React.FC = () => {
                   >
                     <FavouriteIcon
                       size={26}
-                      color={post.isLiked ? '#ef4444' : '#ffffff'}
-                      className={`transition-colors ${post.isLiked ? 'fill-current' : ''}`}
+                      color={postLiked ? '#ef4444' : '#ffffff'}
+                      className={`transition-colors ${postLiked ? 'fill-current' : ''}`}
                     />
                   </button>
 
@@ -183,7 +187,7 @@ const DiscoveryFeed: React.FC = () => {
                   </button>
 
                   <button
-                    onClick={() => alert('Share coming soon')}
+                    onClick={() => handleShare(post)}
                     className="flex items-center gap-2 active:scale-95 transition-transform"
                   >
                     <Share08Icon size={26} color="#ffffff" />
@@ -197,7 +201,7 @@ const DiscoveryFeed: React.FC = () => {
                   <BookmarkAdd01Icon
                     size={26}
                     color="#ffffff"
-                    className={post.isBookmarked ? 'fill-current' : ''}
+                    className={postSaved ? 'fill-current' : ''}
                   />
                 </button>
               </div>
@@ -205,7 +209,7 @@ const DiscoveryFeed: React.FC = () => {
               {/* Likes Count */}
               <div className="mb-2">
                 <span className="font-semibold text-white text-sm">
-                  {post.likes.toLocaleString()} likes
+                  {likeCount.toLocaleString()} likes
                 </span>
               </div>
 
@@ -223,17 +227,18 @@ const DiscoveryFeed: React.FC = () => {
               </div>
 
               {/* Comments Link */}
-              {post.comments > 0 && (
+              {commentCount > 0 && (
                 <button
                   onClick={() => navigate(`/reel/${post.id}`)}
                   className="text-sm text-dark-500 hover:text-dark-600 transition-colors"
                 >
-                  View all {post.comments} comments
+                  View all {commentCount} comments
                 </button>
               )}
             </div>
           </article>
-        ))}
+          );
+        })}
       </main>
 
       {/* Bottom Navigation */}
