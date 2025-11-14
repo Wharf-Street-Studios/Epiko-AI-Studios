@@ -11,8 +11,8 @@ interface ToolConfig {
   description: string;
   instructions: string;
   uploadCount: number; // How many images needed
-  templates?: Array<{ id: number; name: string; emoji: string; category: string }>;
-  styles?: Array<{ id: string; name: string; emoji: string }>;
+  templates?: Array<{ id: number; name: string; emoji?: string; icon?: React.ComponentType<any>; category: string }>;
+  styles?: Array<{ id: string; name: string; emoji?: string; icon?: React.ComponentType<any> }>;
 }
 
 interface AIToolTemplateProps {
@@ -154,31 +154,45 @@ const AIToolTemplate: React.FC<AIToolTemplateProps> = ({ config }) => {
             </h2>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
-              {config.templates?.map((template) => (
-                <button
-                  key={template.id}
-                  onClick={() => setSelectedOption(template.id)}
-                  className={`bg-dark-100 rounded-3xl p-5 aspect-square flex flex-col items-center justify-center gap-2 transition-all ${
-                    selectedOption === template.id ? 'border-2 border-white bg-dark-150' : 'hover:bg-dark-150'
-                  }`}
-                >
-                  <span className="text-5xl">{template.emoji}</span>
-                  <span className="font-semibold text-white text-sm text-center">{template.name}</span>
-                  <span className="text-xs text-dark-500">{template.category}</span>
-                </button>
-              ))}
-              {config.styles?.map((style) => (
-                <button
-                  key={style.id}
-                  onClick={() => setSelectedOption(style.id)}
-                  className={`bg-dark-100 rounded-3xl p-5 aspect-square flex flex-col items-center justify-center gap-2 transition-all ${
-                    selectedOption === style.id ? 'border-2 border-white bg-dark-150' : 'hover:bg-dark-150'
-                  }`}
-                >
-                  <span className="text-5xl">{style.emoji}</span>
-                  <span className="font-semibold text-white text-sm text-center">{style.name}</span>
-                </button>
-              ))}
+              {config.templates?.map((template) => {
+                const IconComponent = template.icon;
+                return (
+                  <button
+                    key={template.id}
+                    onClick={() => setSelectedOption(template.id)}
+                    className={`bg-dark-100 rounded-3xl p-5 aspect-square flex flex-col items-center justify-center gap-2 transition-all ${
+                      selectedOption === template.id ? 'border-2 border-white bg-dark-150' : 'hover:bg-dark-150'
+                    }`}
+                  >
+                    {IconComponent ? (
+                      <IconComponent size={48} color="#ffffff" />
+                    ) : (
+                      <span className="text-5xl">{template.emoji}</span>
+                    )}
+                    <span className="font-semibold text-white text-sm text-center">{template.name}</span>
+                    <span className="text-xs text-dark-500">{template.category}</span>
+                  </button>
+                );
+              })}
+              {config.styles?.map((style) => {
+                const IconComponent = style.icon;
+                return (
+                  <button
+                    key={style.id}
+                    onClick={() => setSelectedOption(style.id)}
+                    className={`bg-dark-100 rounded-3xl p-5 aspect-square flex flex-col items-center justify-center gap-2 transition-all ${
+                      selectedOption === style.id ? 'border-2 border-white bg-dark-150' : 'hover:bg-dark-150'
+                    }`}
+                  >
+                    {IconComponent ? (
+                      <IconComponent size={48} color="#ffffff" />
+                    ) : (
+                      <span className="text-5xl">{style.emoji}</span>
+                    )}
+                    <span className="font-semibold text-white text-sm text-center">{style.name}</span>
+                  </button>
+                );
+              })}
             </div>
 
             <div className="space-y-3">

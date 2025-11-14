@@ -1,13 +1,14 @@
 import React from 'react';
 import AIToolTemplate from '../../components/ui/AIToolTemplate';
+import { SparklesIcon, DiamondIcon, Camera01Icon, PaintBoardIcon, Moon02Icon, VideoReplayIcon } from 'hugeicons-react';
 
 const enhanceStyles = [
-  { id: 'standard', name: 'Standard HD', emoji: '✨' },
-  { id: 'ultra', name: 'Ultra HD', emoji: '💎' },
-  { id: 'portrait', name: 'Portrait Mode', emoji: '📸' },
-  { id: 'vivid', name: 'Vivid Colors', emoji: '🌈' },
-  { id: 'black-white', name: 'B&W Classic', emoji: '⚫' },
-  { id: 'vintage', name: 'Vintage Film', emoji: '📽️' },
+  { id: 'standard', name: 'Standard HD', icon: SparklesIcon },
+  { id: 'ultra', name: 'Ultra HD', icon: DiamondIcon },
+  { id: 'portrait', name: 'Portrait Mode', icon: Camera01Icon },
+  { id: 'vivid', name: 'Vivid Colors', icon: PaintBoardIcon },
+  { id: 'black-white', name: 'B&W Classic', icon: Moon02Icon },
+  { id: 'vintage', name: 'Vintage Film', icon: VideoReplayIcon },
 ];
 
 const EnhanceTool: React.FC = () => {

@@ -1,13 +1,14 @@
 import React from 'react';
 import AIToolTemplate from '../../components/ui/AIToolTemplate';
+import { Camera01Icon, PaintBoardIcon, UserIcon, CrownIcon, GlobeIcon, SnowIcon } from 'hugeicons-react';
 
 const avatarStyles = [
-  { id: 'realistic', name: 'Realistic Portrait', emoji: '📸' },
-  { id: 'cartoon', name: 'Cartoon', emoji: '🎨' },
-  { id: 'superhero', name: 'Superhero', emoji: '🦸' },
-  { id: 'historical', name: 'Historical', emoji: '👑' },
-  { id: 'cultural', name: 'Cultural', emoji: '🎭' },
-  { id: 'seasonal', name: 'Seasonal', emoji: '🎄' },
+  { id: 'realistic', name: 'Realistic Portrait', icon: Camera01Icon },
+  { id: 'cartoon', name: 'Cartoon', icon: PaintBoardIcon },
+  { id: 'superhero', name: 'Superhero', icon: UserIcon },
+  { id: 'historical', name: 'Historical', icon: CrownIcon },
+  { id: 'cultural', name: 'Cultural', icon: GlobeIcon },
+  { id: 'seasonal', name: 'Seasonal', icon: SnowIcon },
 ];
 
 const AIAvatarTool: React.FC = () => {

@@ -1,13 +1,14 @@
 import React from 'react';
 import AIToolTemplate from '../../components/ui/AIToolTemplate';
+import { Sun03Icon, BoatIcon, MountainIcon, Building03Icon, Castle01Icon, ChurchIcon } from 'hugeicons-react';
 
 const coupleTemplates = [
-  { id: 1, name: 'Romantic Sunset', emoji: '🌅', category: 'Romantic' },
-  { id: 2, name: 'Beach Paradise', emoji: '🏖️', category: 'Travel' },
-  { id: 3, name: 'Mountain Adventure', emoji: '⛰️', category: 'Adventure' },
-  { id: 4, name: 'City Lights', emoji: '🌃', category: 'Urban' },
-  { id: 5, name: 'Fairy Tale', emoji: '🏰', category: 'Fantasy' },
-  { id: 6, name: 'Wedding Day', emoji: '💒', category: 'Special' },
+  { id: 1, name: 'Romantic Sunset', icon: Sun03Icon, category: 'Romantic' },
+  { id: 2, name: 'Beach Paradise', icon: BoatIcon, category: 'Travel' },
+  { id: 3, name: 'Mountain Adventure', icon: MountainIcon, category: 'Adventure' },
+  { id: 4, name: 'City Lights', icon: Building03Icon, category: 'Urban' },
+  { id: 5, name: 'Fairy Tale', icon: Castle01Icon, category: 'Fantasy' },
+  { id: 6, name: 'Wedding Day', icon: ChurchIcon, category: 'Special' },
 ];
 
 const CouplePhotoTool: React.FC = () => {

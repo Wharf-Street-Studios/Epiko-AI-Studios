@@ -1,13 +1,14 @@
 import React from 'react';
 import AIToolTemplate from '../../components/ui/AIToolTemplate';
+import { Baby01Icon, StudentIcon, UserIcon, UserCircleIcon, UserAccountIcon, UserGroupIcon } from 'hugeicons-react';
 
 const ageStyles = [
-  { id: 'child', name: 'Child (5 years)', emoji: '👶' },
-  { id: 'teen', name: 'Teen (15 years)', emoji: '🧒' },
-  { id: 'young', name: 'Young Adult (25)', emoji: '👨' },
-  { id: 'middle', name: 'Middle Age (50)', emoji: '👨‍🦳' },
-  { id: 'senior', name: 'Senior (70)', emoji: '👴' },
-  { id: 'elder', name: 'Elder (90)', emoji: '🧓' },
+  { id: 'child', name: 'Child (5 years)', icon: Baby01Icon },
+  { id: 'teen', name: 'Teen (15 years)', icon: StudentIcon },
+  { id: 'young', name: 'Young Adult (25)', icon: UserIcon },
+  { id: 'middle', name: 'Middle Age (50)', icon: UserCircleIcon },
+  { id: 'senior', name: 'Senior (70)', icon: UserAccountIcon },
+  { id: 'elder', name: 'Elder (90)', icon: UserGroupIcon },
 ];
 
 const AgeTransformTool: React.FC = () => {
