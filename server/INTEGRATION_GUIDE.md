@@ -1,6 +1,6 @@
 # Frontend Integration Guide
 
-Complete guide to integrate your React frontend with the Epiko AI Studios backend.
+Complete guide to integrate your React frontend with the Epiko AI Studio backend.
 
 ## 🔗 Backend URL
 

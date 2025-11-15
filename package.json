@@ -1,10 +1,10 @@
 {
-  "name": "epiko-ai-studios",
+  "name": "epiko-ai-studio",
   "version": "1.0.0",
-  "description": "Epiko AI Studios - Mobile-First Content Platform",
+  "description": "Epiko AI Studio - Mobile-First Content Platform",
   "private": true,
   "type": "module",
-  "homepage": "https://wharf-street-studios.github.io/Epiko-AI-Studios",
+  "homepage": "https://wharf-street-studios.github.io/Epiko-AI-Studio",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

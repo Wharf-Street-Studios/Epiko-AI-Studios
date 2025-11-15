@@ -1,7 +1,7 @@
 {
-  "name": "epiko-ai-studios-backend",
+  "name": "epiko-ai-studio-backend",
   "version": "1.0.0",
-  "description": "Backend API for Epiko AI Studios",
+  "description": "Backend API for Epiko AI Studio",
   "main": "src/server.js",
   "type": "module",
   "scripts": {

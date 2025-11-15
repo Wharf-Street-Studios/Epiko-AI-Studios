@@ -1,6 +1,6 @@
-# Epiko AI Studios Backend API
+# Epiko AI Studio Backend API
 
-Node.js backend for Epiko AI Studios with Supabase database and OpenAI integration.
+Node.js backend for Epiko AI Studio with Supabase database and OpenAI integration.
 
 ## Features
 

@@ -86,7 +86,7 @@ const Settings: React.FC = () => {
             <button className="w-full flex items-center justify-between px-4 py-4 border-b border-dark-100">
               <div className="flex items-center gap-3">
                 <InformationCircleIcon size={22} color="#ffffff" />
-                <span className="text-base text-white">About Epiko AI Studios</span>
+                <span className="text-base text-white">About Epiko AI Studio</span>
               </div>
               <span className="text-sm text-dark-600">v1.0.0</span>
             </button>

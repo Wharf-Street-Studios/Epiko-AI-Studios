@@ -1,4 +1,4 @@
-# ✅ Epiko AI Studios Backend - Setup Complete!
+# ✅ Epiko AI Studio Backend - Setup Complete!
 
 Your backend is now fully operational and ready for production use.
 

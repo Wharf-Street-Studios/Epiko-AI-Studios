@@ -42,7 +42,7 @@ const HomeScreen: React.FC = () => {
         <div className="px-4 py-4 max-w-2xl mx-auto">
           <div className="flex items-center justify-between mb-3">
             <h1 className="text-xl font-bold text-white">
-              Epiko AI Studios
+              Epiko AI Studio
             </h1>
             <div className="flex items-center gap-3">
               <button

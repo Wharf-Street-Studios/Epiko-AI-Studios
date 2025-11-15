@@ -14,7 +14,7 @@ const WelcomeScreen: React.FC = () => {
         </div>
 
         <h1 className="text-3xl font-bold text-white mb-2 tracking-tight">
-          Epiko AI Studios
+          Epiko AI Studio
         </h1>
 
         <p className="text-base text-dark-600 text-center max-w-xs mb-12">
